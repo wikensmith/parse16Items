@@ -4,7 +4,7 @@ var Param = &HostParam{
 	PrivateKey: "cqyshkgsetermsdk",
 	BaseURL: "http://eterm.70168.com:8081",
 	AirLineCode: "GS",
-	MysqlURI: "",
+	MysqlURI: "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local",
 	GRPCHost: "0.0.0.0",
 	GRPCPort: "8031",
 	Project:  "RefundRulesCalc",

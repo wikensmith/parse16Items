@@ -2,10 +2,11 @@ package parse
 
 import (
 	"fmt"
-	"github.com/wikensmith/toLogCenter"
 	"github.com/wikensmith/parse16Items/auxiliary"
+	"github.com/wikensmith/parse16Items/const_"
 	"github.com/wikensmith/parse16Items/modules"
 	"github.com/wikensmith/parse16Items/structs"
+	"github.com/wikensmith/toLogCenter"
 )
 
 func ParseModel(etermStr string) (modules.Calc, error){

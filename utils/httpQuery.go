@@ -9,19 +9,22 @@ import (
 	"fmt"
 	mapset "github.com/deckarep/golang-set"
 	"github.com/forgoer/openssl"
-	parse "github.com/wikensmith/parse16Items"
-	"io/ioutil"
+	"github.com/wikensmith/parse16Items/const_"
 	"github.com/wikensmith/parse16Items/structs"
+	"io/ioutil"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
 )
 
-var key = []byte(parse.const_.Param.PrivateKey)
+ 
+
+var key = []byte(const_.Param.PrivateKey)
 
 // GetRefRules16 获取16项规则
 func GetRefRules16(map1 map[string]interface{}, OfficeNo string) (string, error) {
+	
 	data := map[string]interface{}{
 		"FareBasis":      map1["FareBasis"],
 		"Total":          map1["Total"],
@@ -56,7 +59,7 @@ func GetRefRules16(map1 map[string]interface{}, OfficeNo string) (string, error)
 	iv := make([]byte, 16)
 	dst, _ := openssl.AesCBCEncrypt(dataB, key, iv, openssl.PKCS7_PADDING)
 	dataStr := base64.StdEncoding.EncodeToString(dst)
-	URL16 := parse.const_.Param.BaseURL + "/Handler/GetTicketRule.ashx"
+	URL16 := const_.Param.BaseURL + "/Handler/GetTicketRule.ashx"
 	response, err := http.Post(URL16, "application/json", strings.NewReader(dataStr))
 	if err != nil {
 		return "", fmt.Errorf("error in GetRefRules16, error: [%s]", err.Error())
@@ -79,7 +82,7 @@ func GetRefRules16(map1 map[string]interface{}, OfficeNo string) (string, error)
 
 func CalcRefundAmount(ticketNo string) (string, error) {
 
-	URL := parse.const_.Param.BaseURL + "/Handler/CalcRefundAmount.ashx"
+	URL := const_.Param.BaseURL + "/Handler/CalcRefundAmount.ashx"
 	data := map[string]interface{}{
 		"TicketNo": ticketNo,
 		"User": map[string]interface{}{
@@ -132,7 +135,7 @@ func CalcRefundAmount(ticketNo string) (string, error) {
 // http请求汇率
 func GetExchangeRate2(Amount float64, FromCurrency string, OfficeNo string) (s string, err error) {
 
-	URL := parse.const_.Param.BaseURL + "/Handler/ExchangeRate.ashx"
+	URL := const_.Param.BaseURL + "/Handler/ExchangeRate.ashx"
 	data := map[string]interface{}{
 		"Amount":       Amount,
 		"FromCurrency": FromCurrency,
@@ -219,7 +222,7 @@ func GetExchangeRateAndParseRate(Amount float64, FromCurrency string, OfficeNo s
 
 //  GetTicketNoHistory 查询历史记录是否 误机  查询操作记录中 open  状态时间
 func GetTicketNoHistory(ticketNo string, OfficeNo string) (string, error) {
-	URL := parse.const_.Param.BaseURL + "/Handler/GetTicketNoHistory.ashx"
+	URL := const_.Param.BaseURL + "/Handler/GetTicketNoHistory.ashx"
 	data := map[string]interface{}{
 		"TicketNo": ticketNo,
 		"User": map[string]interface{}{
@@ -476,7 +479,7 @@ func TicketNoSuspended(ticketNo string, OfficeNo string) (string, error) {
 	iv := make([]byte, 16)
 	dst, _ := openssl.AesCBCEncrypt(dataB, key, iv, openssl.PKCS7_PADDING)
 	dataStr := base64.StdEncoding.EncodeToString(dst)
-	URL := parse.const_.Param.BaseURL + "/Handler/TicketNoSuspended.ashx"
+	URL := const_.Param.BaseURL + "/Handler/TicketNoSuspended.ashx"
 	response, err := http.Post(URL, "application/json", strings.NewReader(dataStr))
 	if err != nil {
 		return "", fmt.Errorf("error in TicketNoSuspended, error: [%s]", err.Error())
