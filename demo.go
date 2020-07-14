@@ -68,10 +68,10 @@ func (m *ModelNo2)Name() string {
 }
 // 开始
 func Demo() {
-	Param.MysqlURI = "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
-	Param.GRPCHost = "0.0.0.0"
-	Param.GRPCPort = "8088"
-	Param.User = "7921"
+	const_.Param.MysqlURI = "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
+	const_.Param.GRPCHost = "0.0.0.0"
+	const_.Param.GRPCPort = "8088"
+	const_.Param.User = "7921"
 	auxiliary.ParseModels = ParseModel
 	Start()
 }

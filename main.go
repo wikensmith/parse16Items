@@ -4,32 +4,21 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/wikensmith/parse16Items/auxiliary"
+	"github.com/wikensmith/parse16Items/const_"
+	"github.com/wikensmith/parse16Items/db"
+	parseCalcServer "github.com/wikensmith/parse16Items/message"
 	"github.com/wikensmith/toLogCenter"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
-	"github.com/wikensmith/parse16Items/auxiliary"
-	"github.com/wikensmith/parse16Items/config"
-	"github.com/wikensmith/parse16Items/db"
-	parseCalcServer "github.com/wikensmith/parse16Items/message"
-	"github.com/wikensmith/parse16Items/structs"
 	"time"
 )
-var Param = &structs.HostParam{
-	AirLineCode: "GS",
-	MysqlURI: "",
-	GRPCHost: "0.0.0.0",
-	GRPCPort: "8031",
-	Project:  "RefundRulesCalc",
-	Module:   "INT",
-	User:     "7921",
-}
 
 
 func init() {
-	config.InitConfig("./config.toml")
-	db.InitDB(config.GetConfig().Mysql.URI)
+	db.InitDB(const_.Param.MysqlURI)
 }
 
 type server struct{}
@@ -38,9 +27,9 @@ func (s *server) ParseCalc(ctx context.Context, in *parseCalcServer.Req) (*parse
 	fmt.Println("--------------- start " + time.Now().Format("2006-01-02 15:04:05") + "---------------")
 	// 定义日志属性
 	l := toLogCenter.Logger{
-		Project:  Param.Project,
-		Module:  Param.Module,
-		User:    Param.User,
+		Project:  const_.Param.Project,
+		Module:  const_.Param.Module,
+		User:    const_.Param.User,
 	}
 	executor, err := new(auxiliary.Executor).New(in.Data, l)
 	if err != nil {
@@ -67,8 +56,8 @@ func Start() {
 		db.DBClose()
 	}()
 
-	fmt.Println(fmt.Sprintf("GS %s:%s grpc...", Param.GRPCHost, Param.GRPCPort))
-	lis, err := net.Listen("tcp", Param.GRPCHost + ":" + Param.GRPCPort)
+	fmt.Println(fmt.Sprintf("GS %s:%s grpc...", const_.Param.GRPCHost, const_.Param.GRPCPort))
+	lis, err := net.Listen("tcp", const_.Param.GRPCHost + ":" + const_.Param.GRPCPort)
 	if err != nil {
 		log.Fatalf("监听失败: %v", err)
 	}

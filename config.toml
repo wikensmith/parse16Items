@@ -1,6 +1,0 @@
-"BaseURL" = "http://eterm.70168.com:8081"
-"PrivateKey" = "cqyshkgsetermsdk"
-
-[mysql]
-uri = "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
-#uri = ""
