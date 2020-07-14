@@ -75,7 +75,7 @@ func DoLstTest(airlineName string, pathName string)  {
 	name := time.Now().Format("result2006-01-02T15-04-05")
 	defer func() {
 		xlsx.SetActiveSheet(index)
-		if err := xlsx.SaveAs(time.Now().Format("result2006-01-02T15-04-05")+".xlsx"); err != nil {
+		if err := xlsx.SaveAs(name+".xlsx"); err != nil {
 			fmt.Println(fmt.Errorf("error in Write.SaveAs, error: [%s]", err.Error()).Error())
 		}
 	}()
