@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2db096de-12d0-43d6-ba98-c836eead4485" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,10 +125,10 @@
     <proxy>https://goproxy.io,direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="606" y="246" key="FileChooserDialogImpl" timestamp="1594711280129">
+    <state x="606" y="246" key="FileChooserDialogImpl" timestamp="1594711917924">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="606" y="246" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594711280129" />
+    <state x="606" y="246" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594711917924" />
     <state width="1877" height="419" key="GridCell.Tab.0.bottom" timestamp="1594710638414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
