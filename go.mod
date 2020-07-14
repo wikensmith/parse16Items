@@ -1,4 +1,4 @@
-module parse
+module https://github.com/wikensmith/parse16Items
 
 go 1.13
 
