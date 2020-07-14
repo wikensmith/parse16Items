@@ -25,7 +25,7 @@ type Calc interface {
 }
 
 // getHighestFee 如果有多个退票费， 转换汇率成CNY，返回最高价
-func getHighestFee(refundFeeLst [][]string) (maxPrice float64, currency string, err error) {
+func GetHighestFee(refundFeeLst [][]string) (maxPrice float64, currency string, err error) {
 	// [["100", "CNY"], ["CNY", "200"]]
 	if len(refundFeeLst) == 1 {
 		if len(refundFeeLst[0]) == 2 {
@@ -183,7 +183,7 @@ func ISMissedFlight(
 }
 
 // 获取不重复的票号列表
-func getTicketNoLst(passengers_ *structs.Passengers_) []string {
+func GetTicketNoLst(passengers_ *structs.Passengers_) []string {
 	ticketNoLst := make([]string, 0)
 	s := mapset.NewSet()
 	for _, pv := range passengers_.PassengerVoyages {

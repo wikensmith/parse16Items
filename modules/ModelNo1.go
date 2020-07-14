@@ -54,7 +54,7 @@ func (n *ModelNo1) get16ItemInfo(tempMap map[string]string) (err error) {
 		}
 	}
 	if len(resultLst) != 0 {
-		n.ProcessInfo.NoShowFee, n.ProcessInfo.Currency, err = getHighestFee(resultLst)
+		n.ProcessInfo.NoShowFee, n.ProcessInfo.Currency, err = GetHighestFee(resultLst)
 		// currency都是CNY
 	}
 	// 2.匹配是否允许退票
@@ -117,7 +117,7 @@ func (n *ModelNo1) DoCalc() (err error) {
 	}
 
 	// 2.获取最高退票费
-	if len(refundFeeLst) != 0{n.ProcessInfo.RefundFee, n.ProcessInfo.Currency, err = getHighestFee(refundFeeLst)}
+	if len(refundFeeLst) != 0{n.ProcessInfo.RefundFee, n.ProcessInfo.Currency, err = GetHighestFee(refundFeeLst)}
 
 	// 3.匹配过程中需要的参数
 	if err := n.get16ItemInfo(n.EtermMap); err != nil {
