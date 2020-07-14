@@ -1,6 +1,6 @@
 package auxiliary
 
-import "parse/structs"
+import "github.com/wikensmith/parse16Items/structs"
 
 // GetOfficeNo
 func GetOfficeNo(order *structs.BuyOrder) string {

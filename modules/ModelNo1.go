@@ -3,7 +3,7 @@ package modules
 import (
 	"fmt"
 	"github.com/wikensmith/toLogCenter"
-	"parse/structs"
+	"github.com/wikensmith/parse16Items/structs"
 	"regexp"
 )
 

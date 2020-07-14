@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2db096de-12d0-43d6-ba98-c836eead4485" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parseClient/grpcClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/parseClient/grpcClient.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +35,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p09_01_parse16Items_int_GS3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Myproject/SendToLogCenter" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
@@ -125,10 +126,10 @@
     <proxy>https://goproxy.io,direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="606" y="246" key="FileChooserDialogImpl" timestamp="1594711917924">
+    <state x="483" y="180" key="FileChooserDialogImpl" timestamp="1594712566282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="606" y="246" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594711917924" />
+    <state x="483" y="180" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594712566282" />
     <state width="1877" height="419" key="GridCell.Tab.0.bottom" timestamp="1594710638414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -161,18 +162,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="419" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1594699330640">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1594712486415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594699330640" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594712486415" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1594694197772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594694197772" />
-    <state x="2147" y="0" width="829" height="762" maximized="true" key="dock-window-1" timestamp="1594707584761">
-      <screen x="1920" y="0" width="1440" height="860" />
+    <state x="504" y="218" width="829" height="762" maximized="true" key="dock-window-1" timestamp="1594712550715">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="2147" y="0" width="829" height="762" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594707584761" />
+    <state x="504" y="218" width="829" height="762" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594712550715" />
     <state x="636" y="258" width="647" height="524" key="find.popup" timestamp="1594696227494">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

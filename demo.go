@@ -3,9 +3,9 @@ package parse
 import (
 	"fmt"
 	"github.com/wikensmith/toLogCenter"
-	"parse/auxiliary"
-	"parse/modules"
-	"parse/structs"
+	"github.com/wikensmith/parse16Items/auxiliary"
+	"github.com/wikensmith/parse16Items/modules"
+	"github.com/wikensmith/parse16Items/structs"
 )
 
 func ParseModel(etermStr string) (modules.Calc, error){

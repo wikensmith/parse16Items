@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/wikensmith/toLogCenter"
-	"parse/modules"
-	"parse/structs"
+	"github.com/wikensmith/parse16Items/modules"
+	"github.com/wikensmith/parse16Items/structs"
 	"strings"
 )
 

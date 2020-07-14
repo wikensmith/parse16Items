@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/wikensmith/toLogCenter"
-	"parse/structs"
-	"parse/utils"
+	"github.com/wikensmith/parse16Items/structs"
+	"github.com/wikensmith/parse16Items/utils"
 )
 
 type Executor struct {

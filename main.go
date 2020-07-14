@@ -9,11 +9,11 @@ import (
 	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
-	"parse/auxiliary"
-	"parse/config"
-	"parse/db"
-	parseCalcServer "parse/message"
-	"parse/structs"
+	"github.com/wikensmith/parse16Items/auxiliary"
+	"github.com/wikensmith/parse16Items/config"
+	"github.com/wikensmith/parse16Items/db"
+	parseCalcServer "github.com/wikensmith/parse16Items/message"
+	"github.com/wikensmith/parse16Items/structs"
 	"time"
 )
 var Param = &structs.HostParam{
