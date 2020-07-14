@@ -84,6 +84,9 @@ func (n *ModelNo1) calc() error {
 	if  !n.ProcessInfo.IsNotPermitted{
 		// 票面价是否够扣
 		Deduction = n.ProcessInfo.UsedHistoryPrice + n.ProcessInfo.RefundFee + n.ProcessInfo.NoShowFee
+		if Deduction > detrStruct.CostInfo.Price {
+			Deduction = detrStruct.CostInfo.Price
+		}
 	} else {
 		// 2.不允许退票, 直接取票面价
 		//Deduction = detrStruct.CostInfo.Price
