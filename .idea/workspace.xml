@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2db096de-12d0-43d6-ba98-c836eead4485" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/const_/const_.go" beforeDir="false" afterPath="$PROJECT_DIR$/const_/const_.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/httpQuery.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/httpQuery.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
       <recent name="F:\go_projects\p09Parse16Items\p09_01_parse16Items_intl_GS2\parseClient" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.Test_main3 in github.com/wikensmith/parse16Items">
+  <component name="RunManager" selected="Go Test.demo_test.go">
     <configuration name="go build parse" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="p09_01_parse16Items_intl_GS2" />
       <working_directory value="$PROJECT_DIR$" />
@@ -56,17 +54,6 @@
       <method v="2" />
     </configuration>
     <configuration name="TestDoLstTest in parse/parseClient (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="p09_01_parse16Items_intl_GS2" />
-      <working_directory value="$PROJECT_DIR$/parseClient" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="parse/parseClient" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestDoLstTest$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestDoLstTest in parse/parseClient" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="p09_01_parse16Items_intl_GS2" />
       <working_directory value="$PROJECT_DIR$/parseClient" />
       <framework value="gotest" />
@@ -99,13 +86,23 @@
       <pattern value="^Test_main3$" />
       <method v="2" />
     </configuration>
+    <configuration name="demo_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="p09_01_parse16Items_intl_GS2" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <package value="parse" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/demo_test.go" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.demo_test.go" />
         <item itemvalue="Go Test.Test_main3 in github.com/wikensmith/parse16Items" />
         <item itemvalue="Go Test.TestDoLstTest in parse/parseClient (1)" />
         <item itemvalue="Go Test.Test_main3 in parse" />
         <item itemvalue="Go Build.go build parse" />
-        <item itemvalue="Go Test.TestDoLstTest in parse/parseClient" />
       </list>
     </recent_temporary>
   </component>
@@ -134,38 +131,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="483" y="180" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594712566282" />
-    <state width="1877" height="309" key="GridCell.Tab.0.bottom" timestamp="1594715669675">
+    <state width="1877" height="324" key="GridCell.Tab.0.bottom" timestamp="1594716017130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715669675" />
-    <state width="1877" height="309" key="GridCell.Tab.0.center" timestamp="1594715669675">
+    <state width="1877" height="324" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017130" />
+    <state width="1877" height="324" key="GridCell.Tab.0.center" timestamp="1594716017130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715669675" />
-    <state width="1877" height="309" key="GridCell.Tab.0.left" timestamp="1594715669675">
+    <state width="1877" height="324" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017130" />
+    <state width="1877" height="324" key="GridCell.Tab.0.left" timestamp="1594716017130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715669675" />
-    <state width="1877" height="309" key="GridCell.Tab.0.right" timestamp="1594715669675">
+    <state width="1877" height="324" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017130" />
+    <state width="1877" height="324" key="GridCell.Tab.0.right" timestamp="1594716017130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715669675" />
-    <state width="1877" height="309" key="GridCell.Tab.1.bottom" timestamp="1594715620227">
+    <state width="1877" height="324" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017130" />
+    <state width="1877" height="324" key="GridCell.Tab.1.bottom" timestamp="1594716017046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715620227" />
-    <state width="1877" height="309" key="GridCell.Tab.1.center" timestamp="1594715620227">
+    <state width="1877" height="324" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017046" />
+    <state width="1877" height="324" key="GridCell.Tab.1.center" timestamp="1594716017046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715620227" />
-    <state width="1877" height="309" key="GridCell.Tab.1.left" timestamp="1594715620227">
+    <state width="1877" height="324" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017046" />
+    <state width="1877" height="324" key="GridCell.Tab.1.left" timestamp="1594716017046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715620227" />
-    <state width="1877" height="309" key="GridCell.Tab.1.right" timestamp="1594715620227">
+    <state width="1877" height="324" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017046" />
+    <state width="1877" height="324" key="GridCell.Tab.1.right" timestamp="1594716017046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="309" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594715620227" />
+    <state width="1877" height="324" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594716017046" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1594712486415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

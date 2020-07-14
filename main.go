@@ -16,11 +16,6 @@ import (
 	"time"
 )
 
-
-func init() {
-	db.InitDB(const_.Param.MysqlURI)
-}
-
 type server struct{}
 
 func (s *server) ParseCalc(ctx context.Context, in *parseCalcServer.Req) (*parseCalcServer.Res, error) {
@@ -52,6 +47,7 @@ func (s *server) ParseCalc(ctx context.Context, in *parseCalcServer.Req) (*parse
 }
 
 func Start() {
+	db.InitDB(const_.Param.MysqlURI)
 	defer func() {
 		db.DBClose()
 	}()
