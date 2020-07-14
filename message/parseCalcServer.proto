@@ -1,0 +1,17 @@
+  syntax = "proto3";
+  // 定义包名
+  option go_package = "./parseCalcServer";
+
+  service Waiter {
+    rpc ParseCalc(Req) returns (Res){}
+}
+
+  message Req {
+    string data = 1;
+  }
+
+  message Res {
+    int32 status = 1;
+    string message = 2;
+    string data = 3;
+  }

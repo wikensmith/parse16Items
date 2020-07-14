@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2db096de-12d0-43d6-ba98-c836eead4485" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="D:\Go" />
+  <component name="ProjectId" id="1ed0V5NSSW5k4KNt5n6YF5adHIC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\go_projects\p09Parse16Items\p09_01_parse16Items_intl_GS2\parseClient" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Test.TestDoLstTest in parse/parseClient (1)">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="p09_01_parse16Items_intl_GS2" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="parse" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build parse" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="p09_01_parse16Items_intl_GS2" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/demo.go" />
+      <package value="parse" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestDoLstTest in parse/parseClient (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="p09_01_parse16Items_intl_GS2" />
+      <working_directory value="$PROJECT_DIR$/parseClient" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="parse/parseClient" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestDoLstTest$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestDoLstTest in parse/parseClient" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="p09_01_parse16Items_intl_GS2" />
+      <working_directory value="$PROJECT_DIR$/parseClient" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="parse/parseClient" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestDoLstTest$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_main3 in parse" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="p09_01_parse16Items_intl_GS2" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="parse" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^Test_main3$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestDoLstTest in parse/parseClient (1)" />
+        <item itemvalue="Go Test.Test_main3 in parse" />
+        <item itemvalue="Go Build.go build parse" />
+        <item itemvalue="Go Test.TestDoLstTest in parse/parseClient" />
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <vendoring-mode>true</vendoring-mode>
+    <proxy>https://goproxy.io,direct</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1594697015391">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594697015391" />
+    <state width="1877" height="419" key="GridCell.Tab.0.bottom" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state width="1877" height="419" key="GridCell.Tab.0.center" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state width="1877" height="419" key="GridCell.Tab.0.left" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state width="1877" height="419" key="GridCell.Tab.0.right" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state width="1877" height="419" key="GridCell.Tab.1.bottom" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state width="1877" height="419" key="GridCell.Tab.1.center" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state width="1877" height="419" key="GridCell.Tab.1.left" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state width="1877" height="419" key="GridCell.Tab.1.right" timestamp="1594710638414">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594710638414" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1594699330640">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594699330640" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1594694197772">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594694197772" />
+    <state x="2147" y="0" width="829" height="762" maximized="true" key="dock-window-1" timestamp="1594707584761">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="2147" y="0" width="829" height="762" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594707584761" />
+    <state x="636" y="258" width="647" height="524" key="find.popup" timestamp="1594696227494">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="258" width="647" height="524" key="find.popup/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594696227494" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1594694739706">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594694739706" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594695306023">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594695306023" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/parseClient/dealExcel_test.go</url>
+          <line>9</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/demo.go</url>
+          <line>12</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/auxiliary/executor.go</url>
+          <line>85</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

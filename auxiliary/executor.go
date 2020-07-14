@@ -1,0 +1,94 @@
+package auxiliary
+
+import (
+	"encoding/json"
+	"fmt"
+	"github.com/wikensmith/toLogCenter"
+	"parse/structs"
+	"parse/utils"
+)
+
+type Executor struct {
+	ComingData *structs.ComingData
+	Log *toLogCenter.Logger
+}
+
+func (e *Executor) New(inputData string, logger toLogCenter.Logger) (*Executor, error){
+	e.Log = logger.New()
+	e.ComingData = new(structs.ComingData)
+	err := json.Unmarshal([]byte(inputData), e.ComingData)
+	if err != nil{
+		return nil, fmt.Errorf("error in ParseCalc.Unmarshal, error: [%s]", err.Error())
+	}
+	e.Log.AddField(0, e.ComingData.BuyOrders[0].Passengers[0].PassengerVoyages[0].TicketNo)
+	e.Log.AddField(1, e.ComingData.BuyOrders[0].Pnr["PnrCode"])
+	e.Log.AddField(2, e.ComingData.Voyages[0].AirLine)
+	e.Log.AddField(3, e.ComingData.BuyOrders[0].OfficeNo)
+	e.Log.AddField(4, "wiken")
+	e.Log.PrintInput(e.ComingData)
+	return e, nil
+}
+
+func (e *Executor)assignDETR()  {
+	for k, b := range e.ComingData.BuyOrders{
+
+		for pk, p := range b.Passengers {
+			if data, err := json.Marshal(p.DETR);err != nil {
+				fmt.Println(err)
+			}else {
+				e.ComingData.BuyOrders[k].Passengers[pk].RefundCenterDETR = string(data)
+			}
+		}
+	}
+}
+
+func (e *Executor) Do() (interface{}, error) {
+	for bk, b := range e.ComingData.BuyOrders {
+		for pk, p := range b.Passengers {
+			// 解析detr成结构体
+			tempStrct := new(structs.DETRStruct)
+			if err := json.Unmarshal([]byte(p.RefundCenterDETR), tempStrct); err != nil {
+				fmt.Println("error for parse detr:",err)
+			}else {
+				e.ComingData.BuyOrders[bk].Passengers[pk].DETR = tempStrct
+			}
+
+			// 解锁 SUSPENDED
+			err := utils.DoTicketNoSuspended(tempStrct, GetOfficeNo(b))
+			if err != nil {
+				return "", fmt.Errorf("error in DoRefCalc.DoTicketNoSuspended, error: [%s]", err.Error())
+			}
+
+			// 获取16项原始数据
+			 q := Query16Item{
+				Passenger: p,
+				detrInfo:  nil,
+				OfficeNo:  GetOfficeNo(b),
+				Log: e.Log}
+			origin16Data, err  := q.Do()
+			e.Log.Print(origin16Data)
+			if err != nil {
+				return nil, fmt.Errorf("error in Executor.Do.Query16Items, 查询黑屏16项数据失败, error:[%s]", err.Error())
+			}
+
+			// 匹配模板
+			m :=  MatchModel{
+				Passengers:        p,
+				Origin16ItemsData: origin16Data,
+				OfficeNo:GetOfficeNo(b),
+				Log: e.Log}
+			f, err := m.Do()
+			if err != nil {
+				return nil, fmt.Errorf("error in Executor.Do.Query16Items,匹配模板失败, error:[%s]", err.Error())
+			}
+
+			// 执行计算费用
+			if err := f.DoCalc(); err != nil {
+				return nil, fmt.Errorf("error in Executor.Do.DoCalc, 计算退票费失败,error: [%s]", err)
+			}
+
+		}
+	}
+	e.assignDETR()
+	return e.ComingData, nil
+}

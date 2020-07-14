@@ -1,0 +1,145 @@
+">XS FSI/GS//.20JUL19
+S GS 7854Y07AUG HGH2055 2355TSN0S
+S GS 7955U08AUG TSN0855 1155SVO0S",
+    "SI/GS//.20JUL19
+    S GS  7854Y07AUG HGH2055 2355TSN0S
+    S GS  7955U08AUG TSN0855 1155SVO0S
+    01 UHOWCN               2407 CNY                    INCL TAX
+    ***** 历史运价计算仅供参考 *****
+    *SYSTEM DEFAULT-CHECK EQUIPMENT/OPERATING CARRIER
+    *ATTN PRICED ON 13JUL20*1131
+     HGH
+    XTSN UHOWCN                            NVB        NVA07AUG20 2PC
+     MOW UHOWCN                            NVB        NVA07AUG20 2PC
+    FARE  CNY    1300
+    TAX   CNY     140CN CNY      89RI CNY     878XT
+    TOTAL CNY    2407   
+    07AUG19HGH GS X/TSN GS MOW188.13NUC188.13END ROE6.909927
+    XT CNY 28YQ CNY 850YR
+    ENDOS *NON-END/PENALTY APPLY
+    *AUTO BAGGAGE INFORMATION AVAILABLE - SEE FSB
+    *COMMISSION VALIDATED - DATA SOURCE TRAVELSKY
+    TKT/TL07AUG19*2055
+    COMMISSION  0.00 PERCENT OF GROSS
+    FSKY/1E/LNJWIU1KVKCWQ66/FCC=D/",
+
+
+    ">XS FSG01//16",
+    "XG 001/07AUG19      HGHMOW  ADT  RU03/GS /IPRFE  /327 /ATPCO/
+    16.PENALTIES-CHANGES/CANCEL
+     NOTE - RULE RU01 IN IPRG APPLIES
+    <<         NOTE -
+    <<          CANCELLATION
+    <<          CHARGE CNY800 FOR REFUND/CANCEL
+    <<          CHARGE CNY200 FOR NO-SHOW
+    <<          CHILDREN DISCOUNT DO NOT APPLY
+    <<          INFANT UNDER 2 WITHOUT A SEAT REFUNDS FREE
+    <<         NOTE -
+    <<          CHANGES
+    <<          ANY TIME
+    <<          CHARGE CNY500 FOR REISSUE/REVALIDATION
+    <<          CHARGE CNY200 FOR NO-SHOW
+    <<          ----------------------
+    <<          CHILD CHARGES SAME AS ADULT.
+    <<          INFANT FREE OF CHARGE
+    <<          ----------------------
+    <<          BEFORE DEPARTURE OF JOURNEY
+    <<          REPRICE USING CURRENT FARES IN EFFECT AT THE
+    <<          DATE OF TICKET REISSUANCE
+    <<          ----------------------
+    FSKY/1E/5FRG1U1KVK1RK44/FCC=D/PAGE 1/2",
+
+    ">XSFSPN",
+    "XG 001/07AUG19      HGHMOW  ADT  RU03/GS /IPRFE  /327 /ATPCO/
+    <<          AFTER DEPARTURE OF JOURNEY
+    <<          REPRICE USING HISTORICAL FARES IN EFFECT AT
+    <<          ORIGINAL TICKET DATE.
+    <<          ----------------------
+    <<          CHARGE DIFFERENCE IN FARE PLUS CHANGE FEE IF ANY
+    <<          ----------------------
+    <<          IF THE NEW BASE FARE IS LOWER THAN THE PREVIOUS
+    <<          BASE FARE IGNORE ANY RESIDUAL AMOUNT AND NO
+    <<          REFUND PERMITTED.CHARGE CHANGE FEE IF ANY.
+    <<          ----------------------
+    <<          APPLY THE HIGHEST CHANGE FEE OF ALL CHANGED FARE
+    <<          COMPONENTS WITHIN THE JOURNEY.
+    <<          ----------------------
+    <<          CHANGE FEE IS SUBJECT TO EACH CHANGE TRANSACTION
+    <<          ----------------------
+    <<          WAIVED FOR DEATH OF PASSENGER OR FAMILY MEMBER
+    <<          DEATH CERTIFICATE REQUIRED.
+    <<          ----------------------
+    <<          CHANGES MUST BE WITHIN TICKET VALIDITY.
+    FSKY/1E/5FRG1U1KVK1RK44/FCC=D/PAGE 2/2"">XS FSI/GS//.20JUL19
+S GS 7854Y07AUG HGH2055 2355TSN0S
+S GS 7955U08AUG TSN0855 1155SVO0S",
+    "SI/GS//.20JUL19
+    S GS  7854Y07AUG HGH2055 2355TSN0S
+    S GS  7955U08AUG TSN0855 1155SVO0S
+    01 UHOWCN               2407 CNY                    INCL TAX
+    ***** 历史运价计算仅供参考 *****
+    *SYSTEM DEFAULT-CHECK EQUIPMENT/OPERATING CARRIER
+    *ATTN PRICED ON 13JUL20*1131
+     HGH
+    XTSN UHOWCN                            NVB        NVA07AUG20 2PC
+     MOW UHOWCN                            NVB        NVA07AUG20 2PC
+    FARE  CNY    1300
+    TAX   CNY     140CN CNY      89RI CNY     878XT
+    TOTAL CNY    2407
+    07AUG19HGH GS X/TSN GS MOW188.13NUC188.13END ROE6.909927
+    XT CNY 28YQ CNY 850YR
+    ENDOS *NON-END/PENALTY APPLY
+    *AUTO BAGGAGE INFORMATION AVAILABLE - SEE FSB
+    *COMMISSION VALIDATED - DATA SOURCE TRAVELSKY
+    TKT/TL07AUG19*2055
+    COMMISSION  0.00 PERCENT OF GROSS
+    FSKY/1E/LNJWIU1KVKCWQ66/FCC=D/",
+
+
+    ">XS FSG01//16",
+    "XG 001/07AUG19      HGHMOW  ADT  RU03/GS /IPRFE  /327 /ATPCO/
+    16.PENALTIES-CHANGES/CANCEL
+     NOTE - RULE RU01 IN IPRG APPLIES
+    <<         NOTE -
+    <<          CANCELLATION
+    <<          CHARGE CNY800 FOR REFUND/CANCEL
+    <<          CHARGE CNY200 FOR NO-SHOW
+    <<          CHILDREN DISCOUNT DO NOT APPLY
+    <<          INFANT UNDER 2 WITHOUT A SEAT REFUNDS FREE
+    <<         NOTE -
+    <<          CHANGES
+    <<          ANY TIME
+    <<          CHARGE CNY500 FOR REISSUE/REVALIDATION
+    <<          CHARGE CNY200 FOR NO-SHOW
+    <<          ----------------------
+    <<          CHILD CHARGES SAME AS ADULT.
+    <<          INFANT FREE OF CHARGE
+    <<          ----------------------
+    <<          BEFORE DEPARTURE OF JOURNEY
+    <<          REPRICE USING CURRENT FARES IN EFFECT AT THE
+    <<          DATE OF TICKET REISSUANCE
+    <<          ----------------------
+    FSKY/1E/5FRG1U1KVK1RK44/FCC=D/PAGE 1/2",
+
+    ">XSFSPN",
+    "XG 001/07AUG19      HGHMOW  ADT  RU03/GS /IPRFE  /327 /ATPCO/
+    <<          AFTER DEPARTURE OF JOURNEY
+    <<          REPRICE USING HISTORICAL FARES IN EFFECT AT
+    <<          ORIGINAL TICKET DATE.
+    <<          ----------------------
+    <<          CHARGE DIFFERENCE IN FARE PLUS CHANGE FEE IF ANY
+    <<          ----------------------
+    <<          IF THE NEW BASE FARE IS LOWER THAN THE PREVIOUS
+    <<          BASE FARE IGNORE ANY RESIDUAL AMOUNT AND NO
+    <<          REFUND PERMITTED.CHARGE CHANGE FEE IF ANY.
+    <<          ----------------------
+    <<          APPLY THE HIGHEST CHANGE FEE OF ALL CHANGED FARE
+    <<          COMPONENTS WITHIN THE JOURNEY.
+    <<          ----------------------
+    <<          CHANGE FEE IS SUBJECT TO EACH CHANGE TRANSACTION
+    <<          ----------------------
+    <<          WAIVED FOR DEATH OF PASSENGER OR FAMILY MEMBER
+    <<          DEATH CERTIFICATE REQUIRED.
+    <<          ----------------------
+    <<          CHANGES MUST BE WITHIN TICKET VALIDITY.
+    FSKY/1E/5FRG1U1KVK1RK44/FCC=D/PAGE 2/2"
