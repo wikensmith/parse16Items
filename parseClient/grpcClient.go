@@ -60,14 +60,16 @@ func main2(ticketNo, officeNo, Port string) (*parseCalcServer.Res, error){
 	return tr, nil
 }
 
-func DoLstTest(airlineName string, pathName, Port string)  {
-	lst, err := Read(pathName, airlineName)
-	//lst, err := Read("./解析客票.xlsx")
-	if err != nil {
-		fmt.Println(err)
-	}
-	//lst := []string{"826-3393458399"}
+// ReadForTest 读取excel 进行测试
+func ReadForTest(airlineName , Port, pathName string)  {
+	DoLstTest(airlineName, pathName, Port)
+}
+// InputForTest 输入票号进行测试
+func InputForTest(airlineName , Port string, ticketNoLst ...string)  {
+	doLstTest(airlineName, Port, ticketNoLst...)
+}
 
+func doLstTest(airlineName, Port string, ticketNoLst ...string)  {
 	officeNo1 := "CKG177"
 	officeNo2 := "CKG262"
 	xlsx := excelize.NewFile()
@@ -80,8 +82,8 @@ func DoLstTest(airlineName string, pathName, Port string)  {
 		}
 	}()
 	xlsx = Write(xlsx, airlineName, "1", "票号", "是否成功", "票面价", "扣减", "税金")
-	for i, v := range lst {
-		fmt.Printf("总计: %d 条, 已完成: %d 条\n", len(lst), i)
+	for i, v := range ticketNoLst {
+		fmt.Printf("总计: %d 条, 已完成: %d 条\n", len(ticketNoLst), i)
 		if v == ""{
 			continue
 		}
@@ -114,7 +116,7 @@ func DoLstTest(airlineName string, pathName, Port string)  {
 			strconv.FormatFloat(detrStruct.CostInfo.Price,'f', 2, 64),
 			strconv.FormatFloat(detrStruct.UsedFare,'f', 2, 64),
 			fmt.Sprintf("%#v\n", detrStruct.Taxs),
-			); err != nil {
+		); err != nil {
 			fmt.Println(err)
 		}
 		if i %5 == 0 {
@@ -126,6 +128,13 @@ func DoLstTest(airlineName string, pathName, Port string)  {
 	}
 }
 
-func DoSingleTest()  {
-
+// DoLstTest 原始测试函数
+func DoLstTest(airlineName string, pathName, Port string)  {
+	lst, err := Read(pathName, airlineName)
+	//lst, err := Read("./解析客票.xlsx")
+	if err != nil {
+		fmt.Println(err)
+	}
+	//lst := []string{"826-3393458399"}
+	doLstTest(airlineName, Port, lst...)
 }

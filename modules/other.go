@@ -52,7 +52,7 @@ func GetHighestFee(refundFeeLst [][]string) (maxPrice float64, currency string, 
 	}
 	for _, v := range refundFeeLst {
 		if len(v) == 2 {
-			// 是大写字母
+			// 第1个是大写字母
 			if v[0][1] <= 90 && v[0][1] >= 65 {
 				if v[0] != "CNY" {
 					price, _ := strconv.ParseFloat(v[1], 10)
@@ -72,7 +72,167 @@ func GetHighestFee(refundFeeLst [][]string) (maxPrice float64, currency string, 
 						currency = v[0]
 					}
 				}
+			}else{
+				// 第1个是数据
+				if v[1] != "CNY" {
+					price, _ := strconv.ParseFloat(v[0], 10)
+					priceCNY, err := utils.GetExchangeRateAndParseRate(price, v[1], "CKG177")
+					if err != nil {
+						return 0, "", fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
+							"转换汇率失败")
+					}
+					if price > maxPrice {
+						maxPrice = priceCNY
+						currency = "CNY"
+					}
+				} else {
+					price, _ := strconv.ParseFloat(v[0], 10)
+					if price > maxPrice {
+						maxPrice = price
+						currency = v[1]
+					}
+				}
 			}
+		}
+	}
+	if maxPrice == 0 {
+		err = fmt.Errorf("error in getHighestFee, error: [%s: %#v]", "获取最大退票费失败, ", refundFeeLst)
+		return
+	}
+	return
+}
+// getHighestFee 如果有多个退票费， 转换汇率成CNY，返回最高价和key值
+func GetHighestFeeAndKey(refundFeeLst [][]string) (maxPrice float64, currency, key string,  err error) {
+	// [["100", "CNY", "key1"], ["CNY", "200", "key2"]]
+	// key1, key2 为多个运价基础的查询指令
+	if len(refundFeeLst) == 1 {
+		if len(refundFeeLst[0]) == 2 {
+			l := refundFeeLst[0]
+			if l[0][1] <= 90 && l[0][1] >= 65 {
+				maxPrice, _ = strconv.ParseFloat(l[1], 10)
+				currency = l[0]
+			} else {
+				maxPrice, _ = strconv.ParseFloat(l[0], 10)
+				currency = l[1]
+			}
+			if currency != "CNY" {
+				tempPrice, err1 := utils.GetExchangeRateAndParseRate(maxPrice, currency, "CKG177")
+				if err1 != nil {
+					err =  fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]","转换汇率失败")
+					return
+				}
+				maxPrice = tempPrice
+				currency = "CNY"
+				return
+			}
+		}else if len(refundFeeLst[0]) == 3 {
+			l := refundFeeLst[0]
+			if l[0][1] <= 90 && l[0][1] >= 65 {
+				maxPrice, _ = strconv.ParseFloat(l[1], 10)
+				currency = l[0]
+			} else {
+				maxPrice, _ = strconv.ParseFloat(l[0], 10)
+				currency = l[1]
+			}
+			key = l[2]
+			if currency != "CNY" {
+				tempPrice, err1 := utils.GetExchangeRateAndParseRate(maxPrice, currency, "CKG177")
+				if err1 != nil {
+					err =  fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]","转换汇率失败")
+					return
+				}
+				maxPrice = tempPrice
+				currency = "CNY"
+				return
+			}
+		}
+	}
+	for _, v := range refundFeeLst {
+		if len(v) == 2 {
+			// 第1个是大写字母
+			if v[0][1] <= 90 && v[0][1] >= 65 {
+				if v[0] != "CNY" {
+					price, _ := strconv.ParseFloat(v[1], 10)
+					priceCNY, err := utils.GetExchangeRateAndParseRate(price, v[0], "CKG177")
+					if err != nil {
+						return 0, "", "",fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
+							"转换汇率失败")
+					}
+					if price > maxPrice {
+						maxPrice = priceCNY
+						currency = "CNY"
+					}
+				} else {
+					price, _ := strconv.ParseFloat(v[1], 10)
+					if price > maxPrice {
+						maxPrice = price
+						currency = v[0]
+					}
+				}
+			}else{
+				// 第1个是数据
+				if v[1] != "CNY" {
+					price, _ := strconv.ParseFloat(v[0], 10)
+					priceCNY, err := utils.GetExchangeRateAndParseRate(price, v[1], "CKG177")
+					if err != nil {
+						return 0, "", "",fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
+							"转换汇率失败")
+					}
+					if price > maxPrice {
+						maxPrice = priceCNY
+						currency = "CNY"
+					}
+				} else {
+					price, _ := strconv.ParseFloat(v[0], 10)
+					if price > maxPrice {
+						maxPrice = price
+						currency = v[1]
+					}
+				}
+			}
+		}else if len(v) == 3 {
+			// 第1个是大写字母
+			if v[0][1] <= 90 && v[0][1] >= 65 {
+				if v[0] != "CNY" {
+					price, _ := strconv.ParseFloat(v[1], 10)
+					priceCNY, err := utils.GetExchangeRateAndParseRate(price, v[0], "CKG177")
+					if err != nil {
+						return 0, "", "",fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
+							"转换汇率失败")
+					}
+					if price > maxPrice {
+						maxPrice = priceCNY
+						currency = "CNY"
+					}
+				} else {
+					price, _ := strconv.ParseFloat(v[1], 10)
+					if price > maxPrice {
+						maxPrice = price
+						currency = v[0]
+					}
+				}
+			}else{
+				// 第1个是数据
+				if v[1] != "CNY" {
+					price, _ := strconv.ParseFloat(v[0], 10)
+					priceCNY, err := utils.GetExchangeRateAndParseRate(price, v[1], "CKG177")
+					if err != nil {
+						return 0, "","", fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
+							"转换汇率失败")
+					}
+					if price > maxPrice {
+						maxPrice = priceCNY
+						currency = "CNY"
+					}
+				} else {
+					price, _ := strconv.ParseFloat(v[0], 10)
+					if price > maxPrice {
+						maxPrice = price
+						currency = v[1]
+					}
+				}
+			}
+			key = v[2]
 		}
 	}
 	if maxPrice == 0 {

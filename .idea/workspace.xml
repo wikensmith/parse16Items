@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2db096de-12d0-43d6-ba98-c836eead4485" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/structs/refundProceeInfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/structs/refundProceeInfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/other.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/other.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parseClient/grpcClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/parseClient/grpcClient.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,10 +130,10 @@
     <proxy>https://goproxy.io,direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="483" y="180" key="FileChooserDialogImpl" timestamp="1594712566282">
+    <state x="483" y="180" key="FileChooserDialogImpl" timestamp="1594807078237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="483" y="180" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594712566282" />
+    <state x="483" y="180" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594807078236" />
     <state width="1877" height="374" key="GridCell.Tab.0.bottom" timestamp="1594719632648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
