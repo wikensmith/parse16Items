@@ -11,5 +11,6 @@ type ProcessInfo struct {
 	item16RefundFee float64 // 16项中的退票费
 	UsedHistoryPrice float64 // 自愿退票已使用票面价
 	RefundFee float64 // 16项匹配出来的退票费
-
+	ChildDiscount float64 // 儿童票的折扣
+	Extra map[string]interface{} // 其他自定义参数
 }
