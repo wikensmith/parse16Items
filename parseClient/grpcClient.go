@@ -15,9 +15,9 @@ import (
 )
 
 
-func main2(ticketNo, officeNo string) (*parseCalcServer.Res, error){
+func main2(ticketNo, officeNo, Port string) (*parseCalcServer.Res, error){
 	// 建立连接到gRPC服务
-	conn, err := grpc.Dial("127.0.0.1:8088", grpc.WithInsecure())
+	conn, err := grpc.Dial("127.0.0.1:"+Port, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
@@ -60,7 +60,7 @@ func main2(ticketNo, officeNo string) (*parseCalcServer.Res, error){
 	return tr, nil
 }
 
-func DoLstTest(airlineName string, pathName string)  {
+func DoLstTest(airlineName string, pathName, Port string)  {
 	lst, err := Read(pathName)
 	//lst, err := Read("./解析客票.xlsx")
 	if err != nil {
@@ -85,13 +85,13 @@ func DoLstTest(airlineName string, pathName string)  {
 		if v == ""{
 			continue
 		}
-		res, err := main2(v, officeNo1)
+		res, err := main2(v, officeNo1, Port)
 		if err != nil {
 			fmt.Println("error in main2", i, v)
 			continue
 		}
 		if strings.Contains(res.Message, "没有权限获取票号数据") {
-			res, err = main2(v, officeNo2)
+			res, err = main2(v, officeNo2, Port)
 			if err != nil {
 				fmt.Println("error in main2", i, v)
 				continue

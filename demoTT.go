@@ -5,6 +5,7 @@ import (
 	"github.com/wikensmith/parse16Items/auxiliary"
 	"github.com/wikensmith/parse16Items/const_"
 	"github.com/wikensmith/parse16Items/modules"
+	"github.com/wikensmith/parse16Items/parseClient"
 	"github.com/wikensmith/parse16Items/structs"
 	"github.com/wikensmith/toLogCenter"
 )
@@ -13,10 +14,10 @@ func ParseModel(etermStr string) (modules.Calc, error){
 	l := []string{"a", "b"}
 	for _, v := range l {
 		if v == "b"{
-			return &ModelNo1{}, nil
+			return new(ModelNo1), nil
 		}
 		if v == "a" {
-			return &ModelNo2{}, nil
+			return new(ModelNo2), nil
 		}
 	}
 	return nil, fmt.Errorf("error in ParseModel,没有匹配到模板, error: [%s]", "")
@@ -68,7 +69,7 @@ func (m *ModelNo2)Name() string {
 	return "ModelNo2"
 }
 // 开始
-func Demo() {
+func Main2() {
 	const_.Param.MysqlURI = "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
 	const_.Param.GRPCHost = "0.0.0.0"
 	const_.Param.GRPCPort = "8088"
@@ -77,6 +78,6 @@ func Demo() {
 	Start()
 }
 // 测试
-func ForTest()  {
-
+func DoTest()  {
+	parseClient.DoLstTest("GS", "./test.xlsx", "8088")
 }
