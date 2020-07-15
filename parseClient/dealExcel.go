@@ -16,16 +16,16 @@ type Sheet struct {
 	TAxes float64
 }
 
-func Read(path string) ([]string, error ){
+func Read(path, airlineName string) ([]string, error ){
 	xlsx, err := excelize.OpenFile(path)
 	if err != nil {
 		fmt.Println(err)
 		return nil, fmt.Errorf("error in Read.OpenFile, error:[%s]", err.Error())
 	}
-	cell := xlsx.GetCellValue("Sheet1", "A2")
-	fmt.Println(cell)
+	//cell := xlsx.GetCellValue(airlineName, "A2")
+	//fmt.Println(cell)
 	// Get all the rows in the Sheet1.
-	rows := xlsx.GetRows("GS")
+	rows := xlsx.GetRows(airlineName)
 	resultLst := make([]string, 0)
 	for k, row := range rows {
 		if k == 0 {

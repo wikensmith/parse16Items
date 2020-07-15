@@ -52,7 +52,7 @@ func Start() {
 		db.DBClose()
 	}()
 
-	fmt.Println(fmt.Sprintf("GS %s:%s grpc...", const_.Param.GRPCHost, const_.Param.GRPCPort))
+	fmt.Println(fmt.Sprintf("%s %s:%s grpc...", const_.Param.AirLineCode,const_.Param.GRPCHost, const_.Param.GRPCPort))
 	lis, err := net.Listen("tcp", const_.Param.GRPCHost + ":" + const_.Param.GRPCPort)
 	if err != nil {
 		log.Fatalf("监听失败: %v", err)

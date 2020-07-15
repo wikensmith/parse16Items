@@ -61,7 +61,7 @@ func main2(ticketNo, officeNo, Port string) (*parseCalcServer.Res, error){
 }
 
 func DoLstTest(airlineName string, pathName, Port string)  {
-	lst, err := Read(pathName)
+	lst, err := Read(pathName, airlineName)
 	//lst, err := Read("./解析客票.xlsx")
 	if err != nil {
 		fmt.Println(err)
