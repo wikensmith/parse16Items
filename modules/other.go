@@ -61,7 +61,7 @@ func GetHighestFee(refundFeeLst [][]string) (maxPrice float64, currency string, 
 						return 0, "", fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
 							"转换汇率失败")
 					}
-					if price > maxPrice {
+					if priceCNY > maxPrice {
 						maxPrice = priceCNY
 						currency = "CNY"
 					}
@@ -81,7 +81,7 @@ func GetHighestFee(refundFeeLst [][]string) (maxPrice float64, currency string, 
 						return 0, "", fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
 							"转换汇率失败")
 					}
-					if price > maxPrice {
+					if priceCNY > maxPrice {
 						maxPrice = priceCNY
 						currency = "CNY"
 					}
@@ -158,7 +158,7 @@ func GetHighestFeeAndKey(refundFeeLst [][]string) (maxPrice float64, currency, k
 						return 0, "", "",fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
 							"转换汇率失败")
 					}
-					if price > maxPrice {
+					if priceCNY > maxPrice {
 						maxPrice = priceCNY
 						currency = "CNY"
 					}
@@ -178,7 +178,7 @@ func GetHighestFeeAndKey(refundFeeLst [][]string) (maxPrice float64, currency, k
 						return 0, "", "",fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
 							"转换汇率失败")
 					}
-					if price > maxPrice {
+					if priceCNY > maxPrice {
 						maxPrice = priceCNY
 						currency = "CNY"
 					}
@@ -200,7 +200,7 @@ func GetHighestFeeAndKey(refundFeeLst [][]string) (maxPrice float64, currency, k
 						return 0, "", "",fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
 							"转换汇率失败")
 					}
-					if price > maxPrice {
+					if priceCNY > maxPrice {
 						maxPrice = priceCNY
 						currency = "CNY"
 					}
@@ -220,7 +220,7 @@ func GetHighestFeeAndKey(refundFeeLst [][]string) (maxPrice float64, currency, k
 						return 0, "","", fmt.Errorf("error in getHighestFee.GetExchangeRateAndParseRate error:[%s]",
 							"转换汇率失败")
 					}
-					if price > maxPrice {
+					if priceCNY > maxPrice {
 						maxPrice = priceCNY
 						currency = "CNY"
 					}
