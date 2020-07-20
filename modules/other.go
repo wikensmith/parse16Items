@@ -323,7 +323,7 @@ func ISMissedFlight(
 	// 误机时间规定
 	for _, portNode := range FromToAirport {
 		if _, ok := OPENTimeMap[portNode]; !ok {
-			return false, fmt.Errorf("error in ISMissedFlight, error: [%s]", "判断是否误机失败, 请确认该航段 "+OPENTimeMap[portNode]+"是否取消机位置于OPEN")
+			return false, fmt.Errorf("error in ISMissedFlight, error: [%s]", "判断是否误机失败, 请确认该航段 "+portNode+"是否取消机位置于OPEN")
 		}
 		OPENTime, err := time.Parse("2006-01-02 15:04:05", OPENTimeMap[portNode])
 		if err != nil {
