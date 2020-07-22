@@ -81,7 +81,6 @@ func GetRefRules16(map1 map[string]interface{}, OfficeNo string) (string, error)
 }
 
 func CalcRefundAmount(ticketNo string) (string, error) {
-
 	URL := const_.Param.BaseURL + "/Handler/CalcRefundAmount.ashx"
 	data := map[string]interface{}{
 		"TicketNo": ticketNo,
@@ -441,6 +440,13 @@ func DoTicketNoSuspended(params *structs.DETRStruct, OfficeNo string) error {
 				return fmt.Errorf("error in DoTicketNoSuspended, error: [%s]", m["Message"])
 			} else {
 				params.Data.TripInfos[i].TicketNoStatus = "OPEN FOR USE"
+			}
+
+			// 遍历所有票号， 如果此票号与解锁票号相等， 则赋值OPEN FOR USE
+			for j, v := range params.Data.TripInfos {
+				if params.Data.TripInfos[i].TicketNo == v.TicketNo {
+					params.Data.TripInfos[j].TicketNoStatus = "OPEN FOR USE"
+				}
 			}
 		}
 	}
