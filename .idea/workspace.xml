@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2db096de-12d0-43d6-ba98-c836eead4485" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/httpQuery.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/httpQuery.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../p06refund/p06RefundCenterRefund" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
@@ -129,10 +128,10 @@
     <proxy>https://goproxy.io,direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="437" y="169" width="753" height="556" key="FileChooserDialogImpl" timestamp="1594866669151">
+    <state x="437" y="169" width="753" height="556" key="FileChooserDialogImpl" timestamp="1595396123458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="437" y="169" width="753" height="556" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1594866669151" />
+    <state x="437" y="169" width="753" height="556" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1595396123458" />
     <state width="1877" height="374" key="GridCell.Tab.0.bottom" timestamp="1594719632648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

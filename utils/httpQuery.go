@@ -505,3 +505,81 @@ func TicketNoSuspended(ticketNo string, OfficeNo string) (string, error) {
 	}
 	return string(dst), nil
 }
+
+// 外航 查询历史记录是否 误机  查询操作记录中 open  状态时间
+func GetPnrHistory(Pnr string, FlightNo string, FromDate string, OfficeNo string) (string, error) {
+	URL := config.GetConfig().BaseURL + "/Handler/GetPnrHistory.ashx"
+	data := map[string]interface{}{
+		"Pnr": Pnr,
+		"FromDate": FromDate,
+		"FlightNo": FlightNo,
+		"User": map[string]interface{}{
+			"AppName":     "refund_ticket", // 大师兄端接口的用户名及密码
+			"AppPwd":      "refund_ticket",
+			"AppCaptcha":  "",     // 传空
+			"UserName":    "退票中心", // 用户名， 用于计算流量
+			"Department":  "技术中心", // 使用部门， 用于计算流量
+			"ConfigGroup": 0,      //  默认0：使用的配置组 0:常用配置  7316358544891:订单系统配置, 当传入ETermConfig时， 此字段会被短路
+		},
+		"OtherOfficeNo": OfficeNo, // 其他office号， 传入此选项时， 在黑屏中会use 该office号
+		//"ETermConfig": map[string]interface{}{
+		//  "ETermCode":      p.AsmsAcount, // 黑屏帐号
+		//  "ETermPwd":       p.AsmsPwd,    // 黑屏密码
+		//  "ETermIP":        "",           // ip
+		//  "ETermPort":      "",           // 端口
+		//  "IsBigConfig":    "",
+		//  "OfficeNo":       config.GetConfig().BackGround.OfficeNo, // CKG177
+		//  "Authentication": "",                                     //认证模式  0:地址认证 7316358544891: 密码认证
+		//  "KeepAlive":      "",                                     // 保持连接  true:是  false:否
+		//},
+	}
+	dataB, err := json.Marshal(data)
+	if err != nil {
+		return "", fmt.Errorf("error in GetRefRules16.Marshal, error: [%s]", err.Error())
+	}
+	key := []byte(config.GetConfig().PrivateKey)
+	iv := make([]byte, 16)
+	dst, _ := openssl.AesCBCEncrypt(dataB, key, iv, openssl.PKCS7_PADDING)
+	dataStr := base64.StdEncoding.EncodeToString(dst)
+	response, err := http.Post(URL, "application/json", strings.NewReader(dataStr))
+	if err != nil {
+		return "", fmt.Errorf("error in GetTicketNoHistory, error: [%s]", err.Error())
+	}
+	defer func() { _ = response.Body.Close() }()
+	responseB, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return "", fmt.Errorf("error in GetTicketNoHistory.ReadAll, error: [%s]", err.Error())
+	}
+	dataB, err = base64.StdEncoding.DecodeString(string(responseB))
+	if err != nil {
+		return "", fmt.Errorf("error in GetTicketNoHistory.DecodeString, error: [%s]", err.Error())
+	}
+	dst, err = openssl.AesCBCDecrypt(dataB, key, iv, openssl.PKCS7_PADDING)
+	if err != nil {
+		return "", fmt.Errorf("error in GetTicketNoHistory.AesCBCDecrypt, error: [%s]", err.Error())
+	}
+	return string(dst), nil
+}
+
+func UWingQuery(data map[string]string)  (string, error){
+
+	URL := "http://192.168.0.79:8058/admin_api/uwing"
+	dataB, err := json.Marshal(data)
+	if err != nil {
+		return "", fmt.Errorf("error in UWingQuery.Marshal, error: [%s]", err.Error())
+	}
+	response, err := http.Post(URL, "application/json", bytes.NewReader(dataB))
+	if err != nil {
+		return "", fmt.Errorf("error in UWingQuery, error: [%s]", err.Error())
+	}
+	defer func() { _ = response.Body.Close() }()
+	responseB, err := ioutil.ReadAll(response.Body)
+	if err != nil{
+		return "", fmt.Errorf("error in UWingQuery.ReadAll, error: [%s]", err.Error())
+	}
+	return string(responseB), nil
+
+
+
+
+}

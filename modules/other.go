@@ -4,13 +4,14 @@ import (
 	"encoding/json"
 	"fmt"
 	mapset "github.com/deckarep/golang-set"
-	"github.com/wikensmith/toLogCenter"
+	"github.com/tidwall/gjson"
 	"github.com/wikensmith/parse16Items/structs"
 	"github.com/wikensmith/parse16Items/utils"
+	"github.com/wikensmith/toLogCenter"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
-	"strconv"
 )
 
 type Calc interface {
@@ -396,4 +397,115 @@ func ConvertTimeToBeijing(AirportCode, timeStr string) (t string, err error) {
 		t = tempTime.Format("2006-01-02 15:04:05")
 		return t, nil
 	}
+}
+
+func ISMissedFlightFNAir(ticketNo string, OfficeNo string, params *structs.DETRStruct, NoShowRuleTime int) (bool, error) {
+
+	for _, v := range params.Data.TripInfos{
+		if v.TicketNoStatus == "OPEN FOR USE"{
+			Pnr = v.Pnr
+			FlightNo = v.Airline + v.FlightNo
+			FromDate = v.FlightDate
+			DepartureTime = v.DepartureTime + ":00"
+			PassengerName = Data.PassengerName
+			TripInfosFromAirport = v.FromAirport
+			break
+		}
+		
+	}
+	// 外航 调用该接口 查询
+	TickHistoryStr, err := utils.GetPnrHistory(Pnr, FlightNo, FromDate, OfficeNo)
+	IsNoShow := gjson.Get(detr,"IsNoShow").Bool()
+	Message := gjson.Get(detr,"IsNoShow").String()
+	OperationTime := gjson.Get(detr,"OperationTime").String()
+	// 1.直接得到误机
+	if IsNoShow {
+		return true, nil
+	}
+	// 2. pnr过期
+	if Message == "非订座编码或已过期" {
+		// 请求 优翼接口
+		PassengerName = strings.Replace(PassengerName, "MR", "", -1)
+		PassengerName = strings.Replace(PassengerName, "MS", "", -1)
+		PassengerName = strings.Replace(PassengerName, "+", "", -1)
+		PassengerName := strings.Split(PassengerName, "/")
+		
+		PASSENGERINFO = map[string]string{
+			"Firstname":    strings.TrimSpace(PassengerName[0]),
+			"Secondname":   strings.TrimSpace(PassengerName[1]),
+			"flightnumber": FlightNo,
+			"flightdate":   FromDate,
+		}
+		resUWing, err := utils.UWingQuery(PASSENGERINFO)
+		// {"status": 0, "msg": "JDBJEZ"}
+		status := gjson.Get(resUWing, "status").Int()
+		msg := gjson.Get(resUWing, "msg").String()
+		if status == 0 {
+			// 再次请求
+			Pnr = msg
+			TickHistoryStr, err := utils.GetPnrHistory(Pnr, FlightNo, FromDate, OfficeNo)
+			IsNoShow := gjson.Get(detr,"IsNoShow").Bool()
+			Message := gjson.Get(detr,"IsNoShow").String()
+			OperationTime := gjson.Get(detr,"OperationTime").String()
+			if IsNoShow {
+				return true, nil
+			}
+			if OperationTime != ""{
+				// 得到取消机位时间  判断是否误机
+				// detrtime
+				DETRTimeStr, err := ConvertTimeToBeijing(TripInfosFromAirport, FromDate + " " + DepartureTime)
+				if err != nil {
+					return false, fmt.Errorf("error in ISMissedFlightFNAir.ConvertTimeToBeijing, 时区转换失败， 请重试！, error: [%s]", err.Error())
+				}
+				DETRTime, err := time.Parse("2006-01-02 15:04:05", DETRTimeStr)
+				if err != nil {
+					return false, fmt.Errorf("error in ISMissedFlightFNAir.Parse, error: [%s]", err.Error())
+				}
+				dur, _ := time.ParseDuration(fmt.Sprintf("-%dh", NoShowRuleTime))
+				DETRTime = DETRTime.Add(dur)
+				// opentime
+				OPENTime, err := time.Parse("2006-01-02 15:04:05", OperationTime)
+				if err != nil {
+					return false, fmt.Errorf("error in ISMissedFlightFNAir.Parse, error: [%s]", err.Error())
+				}
+				// 该接口 RTU提出时间 固定+8
+				dur, _ = time.ParseDuration(fmt.Sprintf("+%dh", 8))
+				OPENTime = OPENTime.Add(dur)
+				if OPENTime.After(DETRTime) {
+					return true, nil // 误机
+				}
+				return false, nil  // 没有误机
+			}
+			return false, fmt.Errorf("error in ISMissedFlightFNAir, error: [%s]", "判断是否误机失败，请手动处理，" + Message)
+		}
+		return false, fmt.Errorf("error in ISMissedFlightFNAir error: [%s]", msg)
+	}
+	// 3.获取到open时间
+	if OperationTime != ""{
+		// 得到取消机位时间  判断是否误机
+		// detrtime
+		DETRTimeStr, err := ConvertTimeToBeijing(TripInfosFromAirport, FromDate + " " + DepartureTime)
+		if err != nil {
+			return false, fmt.Errorf("error in ISMissedFlightFNAir.ConvertTimeToBeijing, 时区转换失败， 请重试！, error: [%s]", err.Error())
+		}
+		DETRTime, err := time.Parse("2006-01-02 15:04:05", DETRTimeStr)
+		if err != nil {
+			return false, fmt.Errorf("error in ISMissedFlightFNAir.Parse, error: [%s]", err.Error())
+		}
+		dur, _ := time.ParseDuration(fmt.Sprintf("-%dh", NoShowRuleTime))
+		DETRTime = DETRTime.Add(dur)
+		// opentime
+		OPENTime, err := time.Parse("2006-01-02 15:04:05", OperationTime)
+		if err != nil {
+			return false, fmt.Errorf("error in ISMissedFlightFNAir.Parse, error: [%s]", err.Error())
+		}
+		// 该接口 RTU提出时间 固定+8
+		dur, _ = time.ParseDuration(fmt.Sprintf("+%dh", 8))
+		OPENTime = OPENTime.Add(dur)
+		if OPENTime.After(DETRTime) {
+			return true, nil // 误机
+		}
+		return false, nil  // 没有误机
+	}
+	return false, fmt.Errorf("error in ISMissedFlightFNAir, error: [%s]", "判断是否误机失败，请手动处理，" + Message)
 }
