@@ -6,6 +6,7 @@ import (
 	"github.com/wikensmith/toLogCenter"
 	"github.com/wikensmith/parse16Items/structs"
 	"github.com/wikensmith/parse16Items/utils"
+	"strings"
 )
 
 // 把flightNo从constInfo中更新至Data里面
@@ -14,6 +15,12 @@ func UpdateInfoForDETR(tempStruct *structs.DETRStruct)  {
 		for j, n := range tempStruct.Data.TripInfos{
 			if m.FromAirport == n.FromAirport || m.ToAirport == n.ToAirport {
 				tempStruct.Data.TripInfos[j].FlightNo = tempStruct.CostInfo.TripList[i].FlightNo
+				if n.DepartureTime == "" {
+					lst := strings.Split(tempStruct.CostInfo.TripList[i].FlyDate, " ")
+					if len(lst) >=  2 {
+						tempStruct.Data.TripInfos[j].DepartureTime = strings.TrimLeft(lst[1], " ")
+					}
+				}
 			}
 		}
 	}
