@@ -18,7 +18,8 @@ func UpdateInfoForDETR(tempStruct *structs.DETRStruct)  {
 				if n.DepartureTime == "" {
 					lst := strings.Split(tempStruct.CostInfo.TripList[i].FlyDate, " ")
 					if len(lst) >=  2 {
-						tempStruct.Data.TripInfos[j].DepartureTime = strings.TrimLeft(lst[1], " ")
+						tempStruct.Data.TripInfos[j].DepartureTime = strings.Trim(lst[1], " ")
+						tempStruct.Data.TripInfos[j].FlightDate = strings.Trim(lst[0], " ")
 					}
 				}
 			}
