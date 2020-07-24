@@ -13,7 +13,7 @@ import (
 func UpdateInfoForDETR(tempStruct *structs.DETRStruct)  {
 	for i, m := range tempStruct.CostInfo.TripList{
 		for j, n := range tempStruct.Data.TripInfos{
-			if m.FromAirport == n.FromAirport || m.ToAirport == n.ToAirport {
+			if m.FromAirport == n.FromAirport && m.ToAirport == n.ToAirport {
 				tempStruct.Data.TripInfos[j].FlightNo = tempStruct.CostInfo.TripList[i].FlightNo
 				if n.DepartureTime == "" {
 					lst := strings.Split(tempStruct.CostInfo.TripList[i].FlyDate, " ")
