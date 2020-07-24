@@ -8,6 +8,18 @@ import (
 	"github.com/wikensmith/parse16Items/utils"
 )
 
+// 把flightNo从constInfo中更新至Data里面
+func UpdateInfoForDETR(tempStruct *structs.DETRStruct)  {
+	for i, m := range tempStruct.CostInfo.TripList{
+		for j, n := range tempStruct.Data.TripInfos{
+			if m.FromAirport == n.FromAirport || m.ToAirport == n.ToAirport {
+				tempStruct.Data.TripInfos[j].FlightNo = tempStruct.CostInfo.TripList[i].FlightNo
+			}
+		}
+	}
+}
+
+
 type Executor struct {
 	ComingData *structs.ComingData
 	Log *toLogCenter.Logger
@@ -56,6 +68,7 @@ func (e *Executor)deleteEmptyTrips(bk, pk int , tempDETR *structs.DETRStruct)  {
 	e.ComingData.BuyOrders[bk].Passengers[pk].DETRNotAll = tempDETR
 }
 
+
 func (e *Executor) Do() (interface{}, error) {
 	for bk, b := range e.ComingData.BuyOrders {
 		for pk, p := range b.Passengers {
@@ -64,10 +77,11 @@ func (e *Executor) Do() (interface{}, error) {
 			if err := json.Unmarshal([]byte(p.RefundCenterDETR), tempStrct); err != nil {
 				fmt.Println("error for parse detr:",err)
 			}else {
+				UpdateInfoForDETR(tempStrct)
 				e.ComingData.BuyOrders[bk].Passengers[pk].DETR = tempStrct
 				e.deleteEmptyTrips(bk, pk, tempStrct)
 			}
-git
+
 			// 解锁 SUSPENDED
 			err := utils.DoTicketNoSuspended(tempStrct, GetOfficeNo(b))
 			if err != nil {
