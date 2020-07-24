@@ -10,6 +10,7 @@ var Param = &HostParam{
 	Project:  "RefundRulesCalc",
 	Module:   "INT",
 	User:     "7921",
+	UWURL: "http://192.168.0.212:8058/admin_api/uwing",
 }
 
 
@@ -24,5 +25,8 @@ type HostParam struct {
 	Project string
 	Module string
 	User string  // 推送至日志中心的用户名: 工号
+	// UW 网站查询过期pnr
+	UWURL string  // 调用查询接口地址
+
 }
 

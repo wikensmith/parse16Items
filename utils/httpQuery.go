@@ -563,8 +563,8 @@ func GetPnrHistory(Pnr string, FlightNo string, FromDate string, OfficeNo string
 }
 
 func UWingQuery(data map[string]string)  (string, error){
-
-	URL := "http://192.168.0.79:8058/admin_api/uwing"
+	//URL := "http://192.168.0.79:8058/admin_api/uwing"
+	URL := const_.Param.UWURL
 	dataB, err := json.Marshal(data)
 	if err != nil {
 		return "", fmt.Errorf("error in UWingQuery.Marshal, error: [%s]", err.Error())

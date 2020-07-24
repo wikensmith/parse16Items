@@ -8,6 +8,7 @@ require (
 	github.com/forgoer/openssl v0.0.0-20200331032942-ad9f8d57d8b1
 	github.com/golang/protobuf v1.4.2
 	github.com/jinzhu/gorm v1.9.14
+	github.com/tidwall/gjson v1.6.0
 	github.com/wikensmith/toLogCenter v0.0.9
 	golang.org/x/net v0.0.0-20200707034311-ab3426394381
 	golang.org/x/text v0.3.2 // indirect

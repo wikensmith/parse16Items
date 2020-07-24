@@ -12,6 +12,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"github.com/tidwall/gjson"
 )
 
 
@@ -30,6 +31,10 @@ func main2(ticketNo, officeNo, Port string) (*parseCalcServer.Res, error){
 	if err != nil {
 		fmt.Println("error in DoQuery:", err.Error())
 		return nil, err
+	}
+	code :=  gjson.Get(detr, "Error").Int()
+	if code != 0 {
+		return nil, fmt.Errorf("detr查询失败, error: %d,msg: %s",code,  gjson.Get(detr, "Message").String())
 	}
 	param := new(QueueStruct)
 
