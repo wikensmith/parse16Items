@@ -128,6 +128,7 @@ type RefundCenterFeeDetail struct {
 }
 
 type Passengers_ struct {
+	DETRNotAll           *DETRStruct  // 在detr信息中删除缺口程等
 	DETR                 *DETRStruct
 	PassengerId          interface{}
 	ChangePassengerId    string

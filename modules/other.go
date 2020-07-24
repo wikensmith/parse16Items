@@ -400,14 +400,14 @@ func ConvertTimeToBeijing(AirportCode, timeStr string) (t string, err error) {
 }
 
 func ISMissedFlightFNAir(ticketNo string, OfficeNo string, params *structs.DETRStruct, NoShowRuleTime int) (bool, error) {
-
+	var Pnr, FlightNo, FromDate, DepartureTime, PassengerName, TripInfosFromAirport string
 	for _, v := range params.Data.TripInfos{
 		if v.TicketNoStatus == "OPEN FOR USE"{
 			Pnr = v.Pnr
 			FlightNo = v.Airline + v.FlightNo
 			FromDate = v.FlightDate
 			DepartureTime = v.DepartureTime + ":00"
-			PassengerName = Data.PassengerName
+			PassengerName = params.Data.PassengerName
 			TripInfosFromAirport = v.FromAirport
 			break
 		}
@@ -415,9 +415,13 @@ func ISMissedFlightFNAir(ticketNo string, OfficeNo string, params *structs.DETRS
 	}
 	// 外航 调用该接口 查询
 	TickHistoryStr, err := utils.GetPnrHistory(Pnr, FlightNo, FromDate, OfficeNo)
-	IsNoShow := gjson.Get(detr,"IsNoShow").Bool()
-	Message := gjson.Get(detr,"IsNoShow").String()
-	OperationTime := gjson.Get(detr,"OperationTime").String()
+	if err != nil {
+		return false, fmt.Errorf("error in ISMissedFlightFNAir.GetPnrHistory, error: [%s]", err.Error())
+	}
+	IsNoShow := gjson.Get(TickHistoryStr,"IsNoShow").Bool()
+	Message := gjson.Get(TickHistoryStr,"Message").String()
+	OperationTime := gjson.Get(TickHistoryStr,"OperationTime").String()
+
 	// 1.直接得到误机
 	if IsNoShow {
 		return true, nil
@@ -428,15 +432,18 @@ func ISMissedFlightFNAir(ticketNo string, OfficeNo string, params *structs.DETRS
 		PassengerName = strings.Replace(PassengerName, "MR", "", -1)
 		PassengerName = strings.Replace(PassengerName, "MS", "", -1)
 		PassengerName = strings.Replace(PassengerName, "+", "", -1)
-		PassengerName := strings.Split(PassengerName, "/")
+		PassengerNamesl := strings.Split(PassengerName, "/")
 		
-		PASSENGERINFO = map[string]string{
-			"Firstname":    strings.TrimSpace(PassengerName[0]),
-			"Secondname":   strings.TrimSpace(PassengerName[1]),
+		PASSENGERINFO := map[string]string{
+			"Firstname":    strings.TrimSpace(PassengerNamesl[0]),
+			"Secondname":   strings.TrimSpace(PassengerNamesl[1]),
 			"flightnumber": FlightNo,
 			"flightdate":   FromDate,
 		}
 		resUWing, err := utils.UWingQuery(PASSENGERINFO)
+		if err != nil {
+			return false, fmt.Errorf("error in ISMissedFlightFNAir.UWingQuery, error: [%s]", err.Error())
+		}
 		// {"status": 0, "msg": "JDBJEZ"}
 		status := gjson.Get(resUWing, "status").Int()
 		msg := gjson.Get(resUWing, "msg").String()
@@ -444,9 +451,12 @@ func ISMissedFlightFNAir(ticketNo string, OfficeNo string, params *structs.DETRS
 			// 再次请求
 			Pnr = msg
 			TickHistoryStr, err := utils.GetPnrHistory(Pnr, FlightNo, FromDate, OfficeNo)
-			IsNoShow := gjson.Get(detr,"IsNoShow").Bool()
-			Message := gjson.Get(detr,"IsNoShow").String()
-			OperationTime := gjson.Get(detr,"OperationTime").String()
+			if err != nil {
+				return false, fmt.Errorf("error in ISMissedFlightFNAir.GetPnrHistory, error: [%s]", err.Error())
+			}
+			IsNoShow := gjson.Get(TickHistoryStr,"IsNoShow").Bool()
+			Message := gjson.Get(TickHistoryStr,"Message").String()
+			OperationTime := gjson.Get(TickHistoryStr,"OperationTime").String()
 			if IsNoShow {
 				return true, nil
 			}
@@ -454,6 +464,9 @@ func ISMissedFlightFNAir(ticketNo string, OfficeNo string, params *structs.DETRS
 				// 得到取消机位时间  判断是否误机
 				// detrtime
 				DETRTimeStr, err := ConvertTimeToBeijing(TripInfosFromAirport, FromDate + " " + DepartureTime)
+				if err != nil {
+					return false, fmt.Errorf("error in ISMissedFlightFNAir.GetPnrHistory, error: [%s]", err.Error())
+				}
 				if err != nil {
 					return false, fmt.Errorf("error in ISMissedFlightFNAir.ConvertTimeToBeijing, 时区转换失败， 请重试！, error: [%s]", err.Error())
 				}

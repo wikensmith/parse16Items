@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2db096de-12d0-43d6-ba98-c836eead4485" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ys.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/ys.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auxiliary/executor.go" beforeDir="false" afterPath="$PROJECT_DIR$/auxiliary/executor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/other.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/other.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structs/incoming.go" beforeDir="false" afterPath="$PROJECT_DIR$/structs/incoming.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/httpQuery.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/httpQuery.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +41,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../p06refund/p06RefundCenterRefund" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
@@ -204,7 +209,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/auxiliary/executor.go</url>
-          <line>85</line>
+          <line>100</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>

@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"bytes"
 	"crypto/md5"
 	"encoding/base64"
 	"encoding/hex"
@@ -508,7 +509,8 @@ func TicketNoSuspended(ticketNo string, OfficeNo string) (string, error) {
 
 // 外航 查询历史记录是否 误机  查询操作记录中 open  状态时间
 func GetPnrHistory(Pnr string, FlightNo string, FromDate string, OfficeNo string) (string, error) {
-	URL := config.GetConfig().BaseURL + "/Handler/GetPnrHistory.ashx"
+	//URL := config.GetConfig().BaseURL + "/Handler/GetPnrHistory.ashx"
+	URL := const_.Param.BaseURL + "/Handler/GetPnrHistory.ashx"
 	data := map[string]interface{}{
 		"Pnr": Pnr,
 		"FromDate": FromDate,
@@ -537,7 +539,6 @@ func GetPnrHistory(Pnr string, FlightNo string, FromDate string, OfficeNo string
 	if err != nil {
 		return "", fmt.Errorf("error in GetRefRules16.Marshal, error: [%s]", err.Error())
 	}
-	key := []byte(config.GetConfig().PrivateKey)
 	iv := make([]byte, 16)
 	dst, _ := openssl.AesCBCEncrypt(dataB, key, iv, openssl.PKCS7_PADDING)
 	dataStr := base64.StdEncoding.EncodeToString(dst)

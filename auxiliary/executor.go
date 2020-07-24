@@ -41,6 +41,20 @@ func (e *Executor)assignDETR()  {
 		}
 	}
 }
+// 删除行程中的缺口程, (退票的时候需要重新提取相关信息)
+func (e *Executor)deleteEmptyTrips(bk, pk int , tempDETR *structs.DETRStruct)  {
+	for k, v :=  range tempDETR.Data.TripInfos {
+		if v.FlightNo == ""|| v.FlightNo == "unkown" {
+			tempDETR.Data.TripInfos = append(tempDETR.Data.TripInfos[:k], tempDETR.Data.TripInfos[k+1:]...)
+		}
+	}
+	for k, v := range tempDETR.CostInfo.TripList{
+		if v.FlightNo  == "" || v.FlightNo == "unkown"{
+			tempDETR.CostInfo.TripList = append(tempDETR.CostInfo.TripList[:k], tempDETR.CostInfo.TripList[k+1:]...)
+		}
+	}
+	e.ComingData.BuyOrders[bk].Passengers[pk].DETRNotAll = tempDETR
+}
 
 func (e *Executor) Do() (interface{}, error) {
 	for bk, b := range e.ComingData.BuyOrders {
@@ -51,6 +65,7 @@ func (e *Executor) Do() (interface{}, error) {
 				fmt.Println("error for parse detr:",err)
 			}else {
 				e.ComingData.BuyOrders[bk].Passengers[pk].DETR = tempStrct
+				e.deleteEmptyTrips(bk, pk, tempStrct)
 			}
 
 			// 解锁 SUSPENDED
