@@ -42,20 +42,20 @@ func (q *Query16Item)parseDETR() error {
 	}
 
 	Segments_ := make([]interface{}, 0)
-	for _, v := range params.CostInfo.TripList{
+	for _, v := range params.Data.TripInfos{
 		segMap := make(map[string]interface{})
 		segMap["Airline"] =  v.Airline
 		segMap["FlightNum"] = v.FlightNo
 		segMap["Cabin"] = v.Cabin
 		segMap["FromAirport"] = v.FromAirport
 		segMap["ToAirport"] = v.ToAirport
-		segMap["DepTime"] = v.FlyDate  + ":00"
-		depTimeFormat, _:= time.Parse("2006-01-02 15:04:05", v.FlyDate  + ":00")
+		segMap["DepTime"] = v.FlightDate  + " " + v.DepartureTime + ":00"
+		depTimeFormat, _:= time.Parse("2006-01-02 15:04:05", v.FlightDate  + " " + v.DepartureTime + ":00")
 		arrTime := depTimeFormat.Add(3*time.Hour)
 		segMap["ArrTime"] = arrTime.Format("2006-01-02 15:04:05")
 		Segments_ = append(Segments_, segMap)
 	}
-
+	
 	Total_ := params.CostInfo.Price + params.CostInfo.Tax
 	// 出票日期
 	IssueDate_ := params.CostInfo.IssueDate

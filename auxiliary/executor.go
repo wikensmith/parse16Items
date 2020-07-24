@@ -67,7 +67,7 @@ func (e *Executor) Do() (interface{}, error) {
 				e.ComingData.BuyOrders[bk].Passengers[pk].DETR = tempStrct
 				e.deleteEmptyTrips(bk, pk, tempStrct)
 			}
-
+git
 			// 解锁 SUSPENDED
 			err := utils.DoTicketNoSuspended(tempStrct, GetOfficeNo(b))
 			if err != nil {
